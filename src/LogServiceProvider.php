@@ -107,7 +107,10 @@ class LogServiceProvider extends ServiceProvider
      */
     protected function configureSingleHandler(Writer $logger)
     {
-        $logger->useFiles($this->app->storagePath() . '/logs/laravel.log');
+        $logger->useFiles(
+            $this->app->storagePath() . '/logs/laravel.log',
+            $this->app->make('config')->get('app.log_level', 'debug')
+        );
     }
 
     /**
@@ -119,9 +122,12 @@ class LogServiceProvider extends ServiceProvider
      */
     protected function configureDailyHandler(Writer $logger)
     {
+        $config = $this->app->make('config');
+
         $logger->useDailyFiles(
             $this->app->storagePath() . '/logs/laravel.log',
-            $this->app->make('config')->get('app.log_max_files', 5)
+            $config->get('app.log_max_files', 5),
+            $config->get('app.log_level', 'debug')
         );
     }
 
@@ -134,7 +140,10 @@ class LogServiceProvider extends ServiceProvider
      */
     protected function configureSyslogHandler(Writer $logger)
     {
-        $logger->useSyslog('laravel');
+        $logger->useSyslog(
+            'laravel',
+            $this->app->make('config')->get('app.log_level', 'debug')
+        );
     }
 
     /**
@@ -146,7 +155,7 @@ class LogServiceProvider extends ServiceProvider
      */
     protected function configureErrorlogHandler(Writer $logger)
     {
-        $logger->useErrorLog();
+        $logger->useErrorLog($this->app->make('config')->get('app.log_level', 'debug'));
     }
 
     /**
