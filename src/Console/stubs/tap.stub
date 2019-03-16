@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+class DummyClass
+{
+    /**
+     * Customize the given logging instance.
+     *
+     * @param \LoggingTap\Writer $logger
+     * @param array              $arguments
+     *
+     * @return void
+     */
+    public function __invoke($logger, $arguments)
+    {
+    }
+}
