@@ -1,0 +1,30 @@
+{
+    "name": "lukam/logging-tap",
+    "description": "Adds logging tap functionality to Laravel 5.0 - 5.3",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "luka-mladenovic",
+            "email": "luka@kreativika.si"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.0.*",
+        "mockery/mockery": "~0.9.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "LoggingTap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LoggingTap\\Tests\\": "tests/"
+        }
+    }
+}
