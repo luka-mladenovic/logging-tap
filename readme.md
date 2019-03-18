@@ -6,9 +6,11 @@ Adds a [logging tap](https://laravel.com/docs/5.6/logging#advanced-monolog-chann
 
 ## Installation
 
-Install the package
+Install the package using Composer.
 
-@todo
+```
+composer require lukam/logging-tap
+```
 
 
 
